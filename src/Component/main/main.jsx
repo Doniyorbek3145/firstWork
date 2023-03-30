@@ -41,7 +41,7 @@ function Main() {
                 <div className="row">
                     {
                         product.map((item) => (
-                            <div className="col-xl-5 mt-3 col" key={item.id}>
+                            <div className="col-xl-5 mt-3" key={item.id}>
                                 <div className="image-carousel">
                                     <Slider {...settings}>
                                         <div>
