@@ -1,0 +1,110 @@
+header.header-desktop {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    background-color: whitesmoke;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px #F8B517;
+
+    nav {
+        display: flex;
+        align-items: center;
+
+
+        ul {
+            padding: 0;
+            margin: 0;
+            margin-left: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+
+            li {
+                list-style-type: none;
+
+                &:hover {
+                    
+
+                    img {
+                        filter: invert(65%) sepia(71%) saturate(550%) hue-rotate(355deg) brightness(103%) contrast(94%);
+                        transition: 0.25s;
+                    }
+                    a{
+                        transition: 0.25s;
+                        color: #F8B517;
+                    }
+                }
+
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .absolute{
+                    position: absolute;
+                    top: 20px;
+                    margin-left: 40px;
+                    
+                    background-color: #F8B517;
+                    width: 20px;
+                    height: 20px;
+                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    border-radius: 50%;
+                    color: white;
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+            }
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .search {
+            width: 45%;
+            border-radius: 10px;
+            background-color: #F8B517;
+            padding: 2px;
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 80%;
+                height: 40px;
+                border-radius: 10px;
+                outline: 0;
+                border: 0;
+                font-size: 19px;
+                box-sizing: border-box;
+                padding-left: 15px;
+            }
+
+            button {
+                height: 40px;
+                margin-left: 10px;
+                border: 0;
+                color: white;
+                display: flex;
+                align-items: center;
+                background-color: transparent;
+
+                span {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
