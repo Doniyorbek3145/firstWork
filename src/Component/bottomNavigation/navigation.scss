@@ -4,6 +4,7 @@
 }
 
 .Navigation{
+    display: none;
     position: fixed;
     width: 100%;
     bottom: 0;
@@ -35,7 +36,26 @@
                 text-decoration: none;
                 // color: #F8B517;
                 color: black;
+                font-weight: 500;
             }
         }
+
+        .active{
+            transition: 0.5s;
+            a{
+                filter: invert(65%) sepia(71%) saturate(550%) hue-rotate(355deg) brightness(103%) contrast(94%);
+                color: #f8b517;
+                
+            }
+
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+    }
+}
+
+@media (max-width: 586px) {
+    .Navigation{
+        background-color: whitesmoke;
+        display: block;
     }
 }

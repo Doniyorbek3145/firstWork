@@ -17,23 +17,23 @@ function BottomNavigatio() {
                 }} className={navigate===1 ? "active" : null}>
                     <Link to={"/"}>
                         <img src="../assets/house-solid.svg" alt="" className="icon" />
-                        <span>Bosh Sahifa</span>
+                        <span className='text-center'>Bosh Sahifa</span>
                     </Link>
                 </li>
                 <li onClick={()=>{
                     setNavigate(2)
                 }} className={navigate===2 ? "active" : null}>
                     <Link to={""}>
-                        <img src="../assets/house-solid.svg" alt="" className="icon" />
-                        <span>Bosh Sahifa</span>
+                        <img src="../assets/category.png" alt="" className="icon" />
+                        <span>Kategoriya</span>
                     </Link>
                 </li>
                 <li onClick={()=>{
                     setNavigate(3)
                 }} className={navigate===3 ? "active" : null}>
                     <Link to={""}>
-                        <img src="../assets/house-solid.svg" alt="" className="icon" />
-                        <span>Bosh Sahifa</span>
+                        <img src="../assets/cart.svg" alt="" className="icon" />
+                        <span>Savatcha</span>
                     </Link>
                 </li>
                 <li 
@@ -41,8 +41,8 @@ function BottomNavigatio() {
                     setNavigate(4)
                 }} className={navigate===4 ? "active" : null}>
                     <Link to={""}>
-                        <img src="../assets/house-solid.svg" alt="" className="icon" />
-                        <span>Bosh Sahifa</span>
+                        <img src="../assets/avatar.svg" alt="" className="icon" />
+                        <span>Kabinet</span>
                     </Link>
                 </li>
             </ul>
