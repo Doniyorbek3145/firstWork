@@ -9,7 +9,7 @@ function Home() {
         <div>
             <HeaderDesktop/>
             <HeaderMobile/>
-            {/* <Main/> */}
+            <Main/>
             <BottomNavigatio/>
         </div>
     )

@@ -1,0 +1,186 @@
+.main {
+    background-color: whitesmoke;
+    padding-top: 100px;
+
+    .row {
+        width: 95%;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+
+    .col-xl-5 {
+        padding: 0;
+        width: 19%;
+        border-radius: 10px;
+        background-color: white;
+        margin-bottom: 20px;
+
+        .image-carousel {
+            width: 100%;
+
+            img {
+                border-radius: 10px;
+                width: 100%;
+            }
+        }
+
+        .content-section {
+            padding: 0 10px;
+
+            .title {
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 18px;
+            }
+
+            .stars {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+
+                .star-box {
+                    svg {
+                        color: #F8B517;
+                    }
+                }
+
+                .comments {
+                    margin-left: 10px;
+
+                    svg {
+                        height: 15px;
+                    }
+
+                    color: gray;
+                    font-size: 10px;
+                }
+            }
+
+            .price {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            button {
+                width: 100%;
+                border-radius: 10px;
+                height: 40px;
+                background-color: #F8B517;
+                color: white;
+                border: 0;
+                margin-bottom: 10px;
+            }
+
+            .absolute {
+                z-index: 10;
+                position: absolute;
+                transform: translateY(-400px) !important;
+                display: flex;
+                justify-content: space-between;
+                width: 250px;
+
+                span {
+                    background-color: #F8B517;
+                    width: 80px;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    color: white;
+                }
+
+                .images {
+                    div:first-child {
+                        width: 30px;
+                        height: 30px;
+                        background-color: #F8B517;
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .slick-arrow {
+        display: none !important;
+    }
+}
+
+
+@media (max-width: 586px) and (min-width: 350px) {
+    .main {
+        margin-top: 0px;
+        padding: 0;
+
+        .row {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .col-xl-5 {
+            width: 100%;
+
+            .image-carousel {
+                img {
+                    width: 100%;
+                }
+            }
+
+            .absolute {
+                width: 90%;
+                transform: translateY(-450px);
+
+            }
+        }
+    }
+}
+
+
+@media (max-width: 400px) {
+    .main {
+        margin-top: 0px;
+        padding: 0;
+
+        .row {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .col-xl-5 {
+            width: 100%;
+
+            .image-carousel {
+                img {
+                    width: 100%;
+                }
+            }
+
+            .absolute {
+                width: 90% !important;
+                transform: translateY(-420px) !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 400px) and (max-width: 586px)  {
+    .main{
+        .absolute{
+            width: 375px !important;
+            transform: translateY(-480px) !important;
+        }
+
+        .col-xl-5{
+            margin: auto;
+            width: 390px;
+        }
+    }
+}
