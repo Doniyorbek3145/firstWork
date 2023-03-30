@@ -26,13 +26,14 @@ header.header-desktop {
                 list-style-type: none;
 
                 &:hover {
-                    
+
 
                     img {
                         filter: invert(65%) sepia(71%) saturate(550%) hue-rotate(355deg) brightness(103%) contrast(94%);
                         transition: 0.25s;
                     }
-                    a{
+
+                    a {
                         transition: 0.25s;
                         color: #F8B517;
                     }
@@ -47,19 +48,19 @@ header.header-desktop {
                 flex-direction: column;
                 align-items: center;
 
-                .absolute{
+                .absolute {
                     position: absolute;
                     top: 20px;
                     margin-left: 40px;
-                    
+
                     background-color: #F8B517;
                     width: 20px;
                     height: 20px;
-                    
+
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    
+
                     border-radius: 50%;
                     color: white;
                     font-weight: 500;
@@ -106,5 +107,12 @@ header.header-desktop {
                 }
             }
         }
+    }
+}
+
+
+@media (max-width: 586px) {
+    header.header-desktop{
+        display: none;
     }
 }

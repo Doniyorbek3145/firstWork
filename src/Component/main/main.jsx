@@ -10,14 +10,14 @@ function Main() {
 
     function getProducts() {
         axios.get("https://api.escuelajs.co/api/v1/products")
-        .then((res)=>{
-            setProduct(res.data)
-        }).catch((e)=>{
-            console.log(e.message)
-        })
+            .then((res) => {
+                setProduct(res.data)
+            }).catch((e) => {
+                console.log(e.message)
+            })
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getProducts()
     }, [])
 
@@ -25,7 +25,7 @@ function Main() {
         <div className='container'>
             <div className="row">
                 {
-                    product.map((item, index)=>(
+                    product.map((item, index) => (
                         <div className="col-xl-3 card" key={index}>
                             <div className="card-header">
                                 <img src={item.images[0]} alt="" className='w-100' />
