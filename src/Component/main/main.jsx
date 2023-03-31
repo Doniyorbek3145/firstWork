@@ -9,6 +9,8 @@ import { AddShoppingCartOutlined, ChatBubbleOutline, FavoriteBorderOutlined, Sta
 function Main() {
 
     const [product, setProduct] = useState([]);
+    const [like, setLike] = useState(false);
+    const [likeCounter, setLikeCounter] = useState(0);
 
     function getProducts() {
         axios.get("https://api.escuelajs.co/api/v1/products")
@@ -34,6 +36,16 @@ function Main() {
         nextArrow: null,
         prevArrow: null,
     };
+
+    function likeOn() {
+        if (like === false) {
+            setLike(true);
+            setLikeCounter(likeCounter + 1)
+        } else {
+            setLike(false);
+            setLikeCounter(likeCounter - 1)
+        }
+    }
 
     return (
         <div className="main">
@@ -72,7 +84,9 @@ function Main() {
                                             0 ta sharh
                                         </div>
                                     </div>
+                                    <h4 className='last-price'>{item.price-15} 000 so'm</h4>
                                     <h2 className='price'>{item.price} 000  so'm</h2>
+                                    
                                     <button>Bir klikda olish</button>
 
                                     <div className="absolute">
@@ -81,8 +95,8 @@ function Main() {
                                             <div>
                                                 <AddShoppingCartOutlined />
                                             </div>
-                                            <div>
-                                                <FavoriteBorderOutlined />
+                                            <div onClick={likeOn}>
+                                                <FavoriteBorderOutlined className={like === true ? "bg-danger" : null} />
                                             </div>
                                         </div>
                                     </div>
