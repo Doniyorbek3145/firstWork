@@ -4,23 +4,15 @@ import "./main.scss";
 import SingleContent from '../singleContent/singleContent';
 import { BounceLoader } from 'react-spinners';
 // import { PuffLoader } from 'react-spinners';
-
+export const Api = "https://api.escuelajs.co/api/v1/products"
 
 function Main() {
 
     const [product, setProduct] = useState([]);
     const [loader, setLoader] = useState(false)
 
-    /*const getProducts = async () => {
-        const { res } = await axios.get(
-            "https://api.escuelajs.co/api/v1/products"
-        );
-
-        setProduct(res.data)
-    }*/
-
     function getProducts() {
-        axios.get("https://api.escuelajs.co/api/v1/products")
+        axios.get(Api)
             .then((res) => {
                 setProduct(res.data)
             }).catch((e) => {

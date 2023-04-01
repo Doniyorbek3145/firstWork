@@ -14,6 +14,7 @@ header.header-desktop {
         display: flex;
         align-items: center;
 
+        
 
         ul {
             padding: 0;
@@ -27,7 +28,6 @@ header.header-desktop {
                 list-style-type: none;
 
                 &:hover {
-
 
                     img {
                         filter: invert(65%) sepia(71%) saturate(550%) hue-rotate(355deg) brightness(103%) contrast(94%);

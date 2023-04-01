@@ -1,16 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import "./Header.scss";
 
 
 function HeaderDesktop() {
+    const likeCounter = useSelector(state => state.likeCounter);
 
     return (
         <header className='header-desktop'>
             <nav className='container'>
-            <div className="logo">
-                <img src="../assets/isystem-logo.png" alt="" />
-            </div>
+                <div className="logo">
+                    <Link>
+                        <img src="../assets/isystem-logo.png" alt="" />
+                    </Link>
+                </div>
                 <div className="search">
                     <input type="search" />
                     <button>
@@ -46,7 +50,7 @@ function HeaderDesktop() {
                     <li>
                         <Link to={"/"}>
                             <img src="../assets/heart.svg" alt="" />
-                            <span>Sevimlilar<span className='absolute'>0</span></span>
+                            <span>Sevimlilar<span className='absolute'>{likeCounter}</span></span>
                         </Link>
                     </li>
                     <li>

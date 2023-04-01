@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import Slider from "react-slick";
 import { AddShoppingCartOutlined, ChatBubbleOutline, FavoriteBorderOutlined, Star } from '@mui/icons-material';
+import { useDispatch, useSelector } from 'react-redux';
+import { incrementLike } from '../../redux/action/counterActions';
 
 
 function SingleContent({
-    // id,
     images,
     price,
     title
 }) {
 
     const [like, setLike] = useState(false);
-    const [likeCounter, setLikeCounter] = useState(0);
+    const likeCounter = useSelector(state => state.likeCounter);
+    const dispatch = useDispatch();
 
     const settings = {
         dots: false,
@@ -26,13 +28,7 @@ function SingleContent({
     };
 
     function likeOn() {
-        if (like === false) {
-            setLike(true);
-            setLikeCounter(likeCounter + 1)
-        } else {
-            setLike(false);
-            setLikeCounter(likeCounter - 1)
-        }
+        dispatch(incrementLike())
     }
 
     return (
@@ -67,7 +63,7 @@ function SingleContent({
                         0 ta sharh
                     </div>
                 </div>
-                <h4 className='last-price'>{price - 15} 000 so'm</h4>
+                <h4 className='last-price'>{price + 15} 000 so'm</h4>
                 <h2 className='price'>{price} 000  so'm</h2>
 
                 <button>Bir klikda olish</button>
