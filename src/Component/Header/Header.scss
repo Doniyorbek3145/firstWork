@@ -109,14 +109,10 @@ header.header-desktop {
             }
         }
     }
-}
 
 
-@media (max-width: 586px) {
-    header.header-desktop{
-        display: none;
-    }
 }
+
 
 @media (max-width: 1000px) {
     header.header-desktop{

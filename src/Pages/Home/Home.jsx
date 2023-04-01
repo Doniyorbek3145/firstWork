@@ -8,8 +8,8 @@ function Home() {
 
     return (
         <div>
-            <HeaderDesktop/>
             <HeaderMobile/>
+            <HeaderDesktop/>
             <Main/>
             <BottomNavigatio/>
         </div>

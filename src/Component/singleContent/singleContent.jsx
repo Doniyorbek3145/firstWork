@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
 import Slider from "react-slick";
 import { AddShoppingCartOutlined, ChatBubbleOutline, FavoriteBorderOutlined, Star } from '@mui/icons-material';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { incrementLike } from '../../redux/action/counterActions';
 
 
@@ -11,8 +10,8 @@ function SingleContent({
     title
 }) {
 
-    const [like, setLike] = useState(false);
-    const likeCounter = useSelector(state => state.likeCounter);
+    // const [like, setLike] = useState(false);
+    // const likeCounter = useSelector(state => state.likeCounter);
     const dispatch = useDispatch();
 
     const settings = {

@@ -6,9 +6,6 @@ function BottomNavigatio() {
 
     const [navigate, setNavigate] = useState(1);
     localStorage.setItem("navigate", `${navigate}`);
-
-
-
     return (
         <div className='Navigation'>
             <ul>
