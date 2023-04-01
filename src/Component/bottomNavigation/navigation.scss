@@ -53,10 +53,25 @@
     }
 }
 
-@media (max-width: 586px) {
+@media (max-width: 1000px) {
     .Navigation{
         background-color: whitesmoke;
         display: block;
         z-index: 10000;
+    }
+}
+
+@media (min-width: 586px) and (max-width: 1000px) {
+    .Navigation{
+        background-color: white;
+        height: fit-content;
+        ul{
+            height: fit-content;
+            li{
+                width: 22%;
+                height: 100px;
+                background-color: white;
+            }
+        }
     }
 }

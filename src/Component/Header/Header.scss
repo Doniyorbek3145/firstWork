@@ -117,3 +117,9 @@ header.header-desktop {
         display: none;
     }
 }
+
+@media (max-width: 1000px) {
+    header.header-desktop{
+        display: none;
+    }
+}
