@@ -17,3 +17,17 @@ export const setRefresh = () => {
         payload: true
     }
 }
+
+export const setUrlName = (urlName) => {
+    return {
+        type: "SET_URL_NAME",
+        payload: urlName
+    }
+}
+
+export const setCategoryName = (categoryName) => {
+    return {
+        type: "SET_CATEGORY_NAME",
+        payload: categoryName
+    }
+}

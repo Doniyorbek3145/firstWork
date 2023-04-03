@@ -2,6 +2,8 @@ const initialState = {
   likeCounter: 0,
   searchValue: '',
   refresh: false,
+  urlName: "",
+  categoryName: "",
 };
 
 const counterReducer = (state = initialState, action) => {
@@ -12,6 +14,10 @@ const counterReducer = (state = initialState, action) => {
       return {...state, searchValue: action.payload};
     case "SET_REFRESH_PAGE":
       return{...state, refresh: action.payload};
+    case "SET_URL_NAME":
+      return {...state, urlName: action.payload};
+    case "SET_CATEGORY_NAME":
+      return{...state, categoryName: action.payload};
     default:
       return state;
   }

@@ -1,21 +1,25 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import CategoryPage from './Pages/CategoryPage/CategoryPage';
 import Home from './Pages/Home/Home';
-import store from './redux/store';
+import OneCategory from './Pages/oneCategory/oneCategory';
+
 
 function App() {
+
+    const CategoryUrl = useSelector(state=>state.urlName)
+
     return (
-        <Provider store={store}>
+        
             <div>
                 <Switch>
                     <Route path='/' component={Home} exact/>
                     <Route path='/categories' exact component={CategoryPage}/>
+                    <Route path={`/categories/${CategoryUrl}`} component={OneCategory}/>
                     
                 </Switch>
             </div>
-        </Provider>
     )
 }
 
