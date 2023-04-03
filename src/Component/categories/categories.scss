@@ -1,0 +1,28 @@
+.Categories{
+    width: 90%;
+    margin: 110px auto 10px auto; 
+
+    ul{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        li{
+            list-style-type: none;
+
+            a{
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+                color: rgb(89, 88, 88);
+            }
+        }
+    }
+}
+
+
+@media (max-width: 586px) {
+    .Categories{
+        display: none;
+    }
+}

@@ -1,6 +1,5 @@
 .main {
     background-color: whitesmoke;
-    padding-top: 100px;
 
     .row {
         width: 95%;
@@ -138,9 +137,7 @@
     }
 }
 
-.main-mobile {
-    display: none;
-}
+
 
 
 @media (max-width: 680px) {
@@ -193,14 +190,6 @@
         }
 
     }
-
-    main.main-desktop {
-        display: none;
-    }
-
-    .main-mobile{
-        display: block;
-    }
 }
 
 @media (min-width: 921px) and (max-width: 1000px) {
@@ -222,13 +211,5 @@
             }
         }
 
-    }
-
-    .main-desktop {
-        display: none;
-    }
-
-    .main-mobile{
-        display: block;
     }
 }

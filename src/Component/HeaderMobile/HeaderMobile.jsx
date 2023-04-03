@@ -1,19 +1,13 @@
 import { Close, Facebook, Info, Instagram, KeyboardArrowDown, Menu, Newspaper, Telegram } from '@mui/icons-material';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { BounceLoader } from 'react-spinners';
-import { Api } from '../main/main';
-import SingleContent from '../singleContent/singleContent';
+import { setRefresh, setSearchValue } from '../../redux/action/counterActions';
 import "./HeaderMobile.scss"
 
 function HeaderMobile() {
 
     const [navbar, setNavbar] = useState(false);
-    const [search, setSearch] = useState('');
-    const [searchRes, setSearchRes] = useState([]);
-    const [loader, setLoader] = useState(false);
 
     function navbarOpener() {
         if (navbar === true) {
@@ -29,35 +23,28 @@ function HeaderMobile() {
         }
     }
 
-    const fetchSearch = async () => {
-        try {
-            const { data } = await axios.get(
-                Api + "/?title=" + search,
+    const [searchText, setSearchText] = useState('')
+    const dispatch = useDispatch();
 
-            );
-            setSearchRes(data)
-            setLoader(true)
-            setTimeout(() => {
-                setLoader(false)
-            }, 4000)
+    function getInputValue(e) {
+        const {value} = e.target;
+        setSearchText(value)
+    }
 
+    function searching() {
+        dispatch(setSearchValue(searchText));
+        Button()
+    }
 
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    function Button() {
+        dispatch(setRefresh(true))
 
-    useEffect(() => {
-        window.scroll(0, 0);
-        fetchSearch();
-        setLoader(true)
-        setTimeout(() => {
-            setLoader(false)
-        }, 4000)
-    }, []);
+        setTimeout(()=>{
+            setRefresh(false)
+        }, 1500)
+    }
 
     return (
-        <div>
             <div className='header-sm'>
                 <header className='header-mobile' onClick={navbarCloser}>
                     <div className='header-top'>
@@ -131,39 +118,13 @@ function HeaderMobile() {
                     </nav>
                 </header>
                 <div className="search-sm">
-                    <input type="search" placeholder='Qidiring...' onChange={(e)=>{setSearch(e.target.value)}}/>
-                    <button onClick={fetchSearch}>
+                    <input type="search" placeholder='Qidiring...' onChange={getInputValue}/>
+                    <button onClick={searching}>
                         <img src="../assets/search-icon.svg" alt="" />
                         <span>Qidirish</span>
                     </button>
                 </div>
             </div>
-
-            <div className="main main-mobile">
-                {
-                    loader ?
-                        <div className='loader-box'>
-                            <BounceLoader height={50} color="#F8B517" className="loader" />
-                        </div>
-                        :
-                        <div className="container-fluit">
-                            <div className="row">
-                                {
-                                    searchRes.map((item) => (
-                                        <SingleContent
-                                            key={item.id}
-                                            id={item.id}
-                                            images={item.images}
-                                            price={item.price}
-                                            title={item.title}
-                                        />
-                                    ))
-                                }
-                            </div>
-                        </div>
-                }
-            </div>
-        </div>
     )
 }
 

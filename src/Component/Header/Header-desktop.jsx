@@ -1,45 +1,34 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { BounceLoader } from 'react-spinners';
-import { Api } from '../main/main';
-import SingleContent from '../singleContent/singleContent';
+import { setRefresh, setSearchValue } from '../../redux/action/counterActions';
 import "./Header.scss";
 
 
 function HeaderDesktop() {
+    const [searchText, setSearchText] = useState('')
     const likeCounter = useSelector(state => state.likeCounter);
-    const [search, setSearch] = useState('');
-    const [searchRes, setSearchRes] = useState([]);
-    const [loader, setLoader] = useState(false)
-
-    const fetchSearch = async () => {
-        try {
-            const { data } = await axios.get(
-                Api + "/?title=" + search,
-
-            );
-            setSearchRes(data)
-            setLoader(true)
-            setTimeout(() => {
-                setLoader(false)
-            }, 4000)
+    const dispatch = useDispatch();
 
 
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    function getInputValue(e) {
+        const {value} = e.target;
+        setSearchText(value)
+    }
 
-    useEffect(() => {
-        window.scroll(0, 0);
-        fetchSearch();
-        setLoader(true)
-        setTimeout(() => {
-            setLoader(false)
-        }, 4000)
-    }, []);
+    function searching() {
+        dispatch(setSearchValue(searchText));
+        Button()
+    }
+
+    function Button() {
+        dispatch(setRefresh(true))
+
+        setTimeout(()=>{
+            setRefresh(false)
+        }, 1500)
+    }
+
 
     return (
         <div>
@@ -51,8 +40,8 @@ function HeaderDesktop() {
                         </Link>
                     </div>
                     <div className="search">
-                        <input type="search" onChange={(e) => { setSearch(e.target.value) }} />
-                        <button onClick={fetchSearch}>
+                        <input type="search" onChange={getInputValue}/>
+                        <button onClick={searching}>
                             <img src="../assets/search-icon.svg" alt="" />
                             <span>Qidirish</span>
                         </button>
@@ -97,32 +86,6 @@ function HeaderDesktop() {
                     </ul>
                 </nav>
             </header>
-            <div className="main main-desktop">
-                {
-                    loader ?
-                        <div className='loader-box'>
-                            <BounceLoader height={50} color="#F8B517" className="loader" />
-
-                            {/* <PuffLoader height={50} color="#F8B517" className="loader"/> */}
-                        </div>
-                        :
-                        <div className="container-fluit">
-                            <div className="row">
-                                {
-                                    searchRes.map((item) => (
-                                        <SingleContent
-                                            key={item.id}
-                                            id={item.id}
-                                            images={item.images}
-                                            price={item.price}
-                                            title={item.title}
-                                        />
-                                    ))
-                                }
-                            </div>
-                        </div>
-                }
-            </div>
         </div>
     )
 }
