@@ -1,17 +1,16 @@
 import Slider from "react-slick";
 import { AddShoppingCartOutlined, ChatBubbleOutline, FavoriteBorderOutlined, Star } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
-import { incrementLike } from '../../redux/action/counterActions';
+import { incrementLike, setCategoryName } from '../../redux/action/counterActions';
+import { useHistory } from "react-router-dom";
 
 
 function SingleContent({
     images,
     price,
-    title
+    title,
+    id
 }) {
-
-    // const [like, setLike] = useState(false);
-    // const likeCounter = useSelector(state => state.likeCounter);
     const dispatch = useDispatch();
 
     const settings = {
@@ -30,8 +29,16 @@ function SingleContent({
         dispatch(incrementLike())
     }
 
+    // const oneContentInfo = useSelector(state => state.categoryName);
+    const history = useHistory();
+
+    function OnePageIn(id, name) {
+        dispatch(setCategoryName(id))
+        history.push(`/home/${name}`, {replace: true})
+    }
+
     return (
-        <div className="col-xl-5 mt-3">
+        <div className="col-xl-5 mt-3" onClick={()=>OnePageIn(id, title)}>
             <div className="image-carousel">
                 <Slider {...settings}>
                     <div>

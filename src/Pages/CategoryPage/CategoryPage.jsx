@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import BottomNavigatio from '../../Component/bottomNavigation/bottomNavigation';
 import HeaderDesktop from '../../Component/Header/Header-desktop';

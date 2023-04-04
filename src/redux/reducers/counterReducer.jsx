@@ -2,7 +2,7 @@ const initialState = {
   likeCounter: 0,
   searchValue: '',
   refresh: false,
-  urlName: "",
+  urlName: "1",
   categoryName: "",
   BottomNavNum: 1,
 };

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { BounceLoader } from 'react-spinners';
 import BottomNavigatio from '../../Component/bottomNavigation/bottomNavigation';
 import Categories from '../../Component/categories/categories';
@@ -10,9 +11,9 @@ import "./oneCategory.scss"
 function OneCategory() {
     const [product, setProduct] = useState([]);
     const [loader, setLoader] = useState(false);
-
+    const urlId= useSelector(state=>state.urlName);
     function getProducts() {
-        axios.get(`https://api.escuelajs.co/api/v1/categories/2/products`)
+        axios.get(`https://api.escuelajs.co/api/v1/categories/${urlId}/products`)
             .then((res) => {
                 setProduct(res.data)
             }).catch((e) => {
