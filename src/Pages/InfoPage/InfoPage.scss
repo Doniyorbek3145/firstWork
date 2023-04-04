@@ -1,0 +1,25 @@
+.info-page{
+    .about{
+        margin-top: 100px;
+
+        .breadcrumb{
+            a{
+                text-decoration: none;
+            }
+        }
+
+    }
+
+    .loader-box {
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 100px);
+
+        .loader {
+            background-color: white;
+
+        }
+    }
+}
