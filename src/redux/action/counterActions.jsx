@@ -31,3 +31,10 @@ export const setCategoryName = (categoryName) => {
         payload: categoryName
     }
 }
+
+export const setNavNum =(navNum)=>{
+    return{
+        type: "SET_NAV_NUM",
+        payload: navNum
+    }
+}

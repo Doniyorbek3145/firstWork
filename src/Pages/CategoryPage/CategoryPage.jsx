@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
+import BottomNavigatio from '../../Component/bottomNavigation/bottomNavigation';
 import HeaderDesktop from '../../Component/Header/Header-desktop';
 import HeaderMobile from '../../Component/HeaderMobile/HeaderMobile';
-import { setCategoryName, setUrlName } from '../../redux/action/counterActions';
+import { setUrlName } from '../../redux/action/counterActions';
 import "./CategoryPage.scss"
 
 function CategoryPage() {
@@ -29,11 +30,15 @@ function CategoryPage() {
             setLoader(false)
         }, 2000);
     }, []);
+    
+    const history= useHistory()
 
-    function changeUrl(id, name) {
+    function changeUrl(id, urlName) {
         dispatch(setUrlName(id));
-        dispatch(setCategoryName(name));
+        history.push(`/categories/${urlName}`, {replace: true})
     }
+
+    
 
 
 
@@ -43,7 +48,6 @@ function CategoryPage() {
             <HeaderDesktop/>
             <HeaderMobile/>
             <div className="container category">
-
                 {
                     loader ?
                         <div className='loader-category'>
@@ -52,19 +56,18 @@ function CategoryPage() {
                         :
                         <ul>
                             {category.map((item) => (
-                                <li key={item.id}>
-                                    <Link to={`/categories/${item.name}`} onClick={()=>{changeUrl(item.id, item.name)}}>
+                                <li key={item.id} style={{cursor: "pointer"}} onClick={()=>changeUrl(item.id, item.name)}>
                                         <div className='image'>
                                             <img src={item.image} alt="" />
                                         </div>
                                         <h4>{item.name}</h4>
-                                    </Link>
                                 </li>
                             ))}
                         </ul>
                 }
 
             </div>
+            <BottomNavigatio/>
         </div>
     )
 }

@@ -4,6 +4,7 @@ const initialState = {
   refresh: false,
   urlName: "",
   categoryName: "",
+  BottomNavNum: 1,
 };
 
 const counterReducer = (state = initialState, action) => {
@@ -18,6 +19,8 @@ const counterReducer = (state = initialState, action) => {
       return {...state, urlName: action.payload};
     case "SET_CATEGORY_NAME":
       return{...state, categoryName: action.payload};
+    case "SET_NAV_NUM":
+      return{...state, BottomNavNum: action.payload};
     default:
       return state;
   }
